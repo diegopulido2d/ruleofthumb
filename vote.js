@@ -1,3 +1,5 @@
+  let newVote = [];
+  
 
   function voteP (n) {
 
@@ -24,5 +26,30 @@
     voteBtn = document.getElementsByClassName('cardV')[n];
     voteBtn.disabled = false;
     voteBtn.setAttribute('onclick', 'thumbsDw('+n+')');
+
+  }
+
+
+
+
+  function thumbsUp(n){
+
+    newVote.push(JSON.parse(localStorage.getItem('Character'+n)));
+    newVote[0].votes.positive++;
+
+    localStorage.setItem('Character'+n, JSON.stringify(newVote[0]));
+
+    newVote = [];
+
+  }
+
+  function thumbsDw(n){
+
+    newVote.push(JSON.parse(localStorage.getItem('Character'+n)));
+    newVote[0].votes.negative++;
+
+    localStorage.setItem('Character'+n, JSON.stringify(newVote[0]));
+
+    newVote = [];
 
   }

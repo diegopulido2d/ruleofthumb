@@ -833,9 +833,15 @@ main h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     border: 2px solid #FFFFFF;
+    transition: 0.2s;
+}
+
+.cardV:disabled{
+    background: rgba(48, 48, 48, 0.6);
+    transition: 0.2s;
 }
 
 .cardVText{
