@@ -1,6 +1,8 @@
+//import moment from '/node_modules/moment';
 
 let main = document.getElementsByTagName('main')[0];
 let results = [];
+
 
 class card{
     constructor(name, desc, cat, pic, date, pvotes, nvotes){
@@ -8,6 +10,11 @@ class card{
         this.desc = desc;
         this.cat = cat;
         this.pic =  pic;
+        /*
+        const m1 = moment(new Date(date));
+        const m2 = Date.now();
+        this.date = duration(m2.diff(m1)).humanize(true);
+        */
         this.date = date;
         this.pvotes = pvotes;
         this.nvotes = nvotes;
@@ -24,12 +31,9 @@ fetch('assets/data.json')
         localStorage.setItem('Character'+n, JSON.stringify(res.data[n]));
     }
 
-
     for (var i = 0; i < 6; i++){
         results.push(JSON.parse(localStorage.getItem('Character'+i)));
     }
-
-    console.log(results);
     
     for (var i = 0; i < results.length; i++){
 
@@ -158,25 +162,3 @@ fetch('assets/data.json')
     }
 
   });
-
-
-
-  function voteP (n) {
-
-    let cardBtnP = document.getElementsByClassName('cardThumbsUp')[n];
-    cardBtnP.style.border = "2px solid white";
-
-    let cardBtnN = document.getElementsByClassName('cardThumbsDw')[n];
-    cardBtnN.style.border = "transparent";
-
-  }
-
-  function voteN (n) {
-
-    let cardBtnN = document.getElementsByClassName('cardThumbsDw')[n];
-    cardBtnN.style.border = "2px solid white";
-
-    let cardBtnP = document.getElementsByClassName('cardThumbsUp')[n];
-    cardBtnP.style.border = "2px solid transparent";
-
-  }
