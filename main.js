@@ -1,4 +1,3 @@
-//import moment from '/node_modules/moment';
 
 let main = document.getElementsByTagName('main')[0];
 let results = [];
@@ -10,11 +9,6 @@ class card{
         this.desc = desc;
         this.cat = cat;
         this.pic =  pic;
-        /*
-        const m1 = moment(new Date(date));
-        const m2 = Date.now();
-        this.date = duration(m2.diff(m1)).humanize(true);
-        */
         this.date = date;
         this.pvotes = pvotes;
         this.nvotes = nvotes;
@@ -76,7 +70,11 @@ fetch('assets/data.json')
         let cardAct = document.createElement('div');
         cardAct.classList.add('cardAct');
         let cardDate = document.createElement('p');
+        cardDate.classList.add('cardDate');
         cardDate.innerText = character.date;
+        let cardTY = document.createElement('p');
+        cardTY.classList.add('cardTY');
+        cardTY.innerText = 'Thank you for your vote!';
 
         let cardVote = document.createElement('div');
         cardVote.classList.add('cardVote');
@@ -96,6 +94,7 @@ fetch('assets/data.json')
         cardThumbsDwImg.classList.add('cardThumbsDwImg');
         cardThumbsDwImg.src = 'assets/img/thumbs-down.svg';
         cardThumbsDw.appendChild(cardThumbsDwImg);
+
         let cardV = document.createElement('button');
         cardV.classList.add('cardV');
         cardV.setAttribute('disabled', true);
@@ -104,10 +103,19 @@ fetch('assets/data.json')
         cardVText.innerHTML = 'Vote Now';
         cardV.appendChild(cardVText);
 
+        let cardVA = document.createElement('button');
+        cardVA.classList.add('cardVA');
+        cardVA.setAttribute('onclick', 'voteA('+i+')');
+        let cardVAText = document.createElement('h5');
+        cardVAText.innerHTML = 'Vote Again';
+        cardVA.appendChild(cardVAText);
+
         cardAct.appendChild(cardDate);
+        cardAct.appendChild(cardTY);
         cardVote.appendChild(cardThumbsUp);
         cardVote.appendChild(cardThumbsDw);
         cardVote.appendChild(cardV);
+        cardVote.appendChild(cardVA);
         cardAct.appendChild(cardVote);
 
         cardTop.appendChild(gRating);
