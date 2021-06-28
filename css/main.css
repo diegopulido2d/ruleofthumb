@@ -110,6 +110,7 @@ hr[role="separator"] {
     left: 0;
     display: flex;
     width: 100vw;
+    height: 100%;
     height: calc(100vh - 4rem);
     flex-direction: column;
     padding: 4rem 0 2rem;
