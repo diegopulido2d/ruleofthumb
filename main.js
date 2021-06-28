@@ -72,7 +72,23 @@ fetch('assets/data.json')
         cardAct.classList.add('cardAct');
         let cardDate = document.createElement('p');
         cardDate.classList.add('cardDate');
-        cardDate.innerText = character.date;
+
+        let fDate = new Date(character.date);
+        let days = Math.round((Date.now()-fDate)/86400000);
+        let years, months = 0;
+
+        if(days > 365){
+             years = Math.round(days/365);
+             cardDate.innerText = years+' year(s) ago in '+character.cat;
+        } else if ((days < 365) && (days > 31)){
+             months = Math.round(days/12);
+             if (months > 12){
+                years = Math.round(months/12);
+                cardDate.innerText = years+' year(s) ago in '+character.cat;
+             } else
+             cardDate.innerText = months+' months ago in '+character.cat;
+        };
+
         let cardTY = document.createElement('p');
         cardTY.classList.add('cardTY');
         cardTY.innerText = 'Thank you for your vote!';
