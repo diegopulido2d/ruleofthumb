@@ -7,7 +7,7 @@
     cardBtnP.style.border = "2px solid white";
 
     let cardBtnN = document.getElementsByClassName('cardThumbsDw')[n];
-    cardBtnN.style.border = "transparent";
+    cardBtnN.style.border = "2px solid transparent";
 
     voteBtn = document.getElementsByClassName('cardV')[n];
     voteBtn.disabled = false;
@@ -75,3 +75,7 @@
     document.getElementsByClassName('cardV')[n].removeAttribute('onclick');
 
   }
+
+
+
+  

@@ -1,5 +1,5 @@
 
-let main = document.getElementsByTagName('main')[0];
+let characters = document.getElementsByClassName('characters')[0];
 let results = [];
 
 
@@ -62,6 +62,7 @@ fetch('assets/data.json')
         cardText.classList.add('cardText');
         let cardName = document.createElement('h3');
         cardName.innerText = character.name;
+        cardName.classList.add('cardName');
         let cardDesc = document.createElement('p');
         cardDesc.innerText = character.desc;
         cardText.appendChild(cardName);
@@ -165,7 +166,7 @@ fetch('assets/data.json')
         cardContainer.appendChild(cardGauge);
 
 
-        main.appendChild(cardContainer);
+        characters.appendChild(cardContainer);
         
     }
 
