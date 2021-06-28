@@ -1,7 +1,8 @@
 
+// DECLARING IMPORTANT VARIABLES AND CLASSES
+
 let characters = document.getElementsByClassName('characters')[0];
 let results = [];
-
 
 class card{
     constructor(name, desc, cat, pic, date, pvotes, nvotes){
@@ -15,19 +16,28 @@ class card{
     }
 }
 
+// CONSUMING DATA.JSON FILE
+
 fetch('assets/data.json')
   .then(response => response.json())
   .then(res => {
 
+
+    // IF LOCALSTORAGE IS EMPTY, STORE RESULTS CONTAINED IN DATA.JSON
 
     if (localStorage.length === 0) {
         for(var n in res.data)
         localStorage.setItem('Character'+n, JSON.stringify(res.data[n]));
     }
 
+    // FILL AN EMPTY ARRAY WITH THE DATA OBTAINED FROM LOCALSTORAGE
+
     for (var i = 0; i < 6; i++){
         results.push(JSON.parse(localStorage.getItem('Character'+i)));
     }
+
+
+    // USING OUR NEW ARRAY TO CREATE THE CHARACTER'S CARDS
     
     for (var i = 0; i < results.length; i++){
 
@@ -47,6 +57,8 @@ fetch('assets/data.json')
         
         let cardTop = document.createElement('div');
         cardTop.classList.add('cardTop');
+
+        // DRAWING THUMB ICONS ACCORDING TO POPULARITY
 
         let gRating = document.createElement('img');
         gRating.classList.add('gRating');
@@ -73,6 +85,9 @@ fetch('assets/data.json')
         let cardDate = document.createElement('p');
         cardDate.classList.add('cardDate');
 
+
+        // CALCULATING TIME LAPSED SINCE THE POLL'S RELEASE
+
         let fDate = new Date(character.date);
         let days = Math.round((Date.now()-fDate)/86400000);
         let years, months = 0;
@@ -88,6 +103,7 @@ fetch('assets/data.json')
              } else
              cardDate.innerText = months+' months ago in '+character.cat;
         };
+
 
         let cardTY = document.createElement('p');
         cardTY.classList.add('cardTY');
@@ -148,6 +164,8 @@ fetch('assets/data.json')
         let cardGaugeP = document.createElement('div');
         cardGaugeP.classList.add('cardGaugeP');
         cardGaugeP.style.backgroundColor = 'rgba(60, 187, 180, 0.7)';
+
+        // CALCULATING POPULARITY PERCENTAGES
 
         let totalVotes = (character.pvotes) + (character.nvotes);
         let pPercent = ((character.pvotes*100)/totalVotes).toFixed(2);

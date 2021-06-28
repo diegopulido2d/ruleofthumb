@@ -1,5 +1,6 @@
   let newVote = [];
   
+  // ENABLES VOTE BUTTON WHENEVER EITHER OF THE THUMB ICONS IS SELECTED
 
   function voteP (n) {
 
@@ -29,6 +30,8 @@
 
   }
 
+
+  // SUMS THE NEW VOTE TO THE TOTALS SAVED INTO LOCALSTORAGE
 
   function thumbsUp(n){
 
@@ -62,6 +65,8 @@
 
   }
 
+
+  // VOTE AGAIN FUNCTIONALITY
 
   function voteA(n){
     document.getElementsByClassName('cardDate')[n].style.display = 'flex';

@@ -1,4 +1,5 @@
 
+// SWITCHES BETWEEN GRID VIEW AND LIST VIEW MODES
 
 function gridmode() {
     document.styleSheets[3].disabled = true;
