@@ -40,6 +40,8 @@
 
     localStorage.setItem('Character'+n, JSON.stringify(newVote[0]));
 
+    recalculate(n);
+
     document.getElementsByClassName('cardDate')[n].style.display = 'none';
     document.getElementsByClassName('cardV')[n].style.display = 'none';
     document.getElementsByClassName('cardTY')[n].style.display = 'flex';
@@ -56,6 +58,8 @@
 
     localStorage.setItem('Character'+n, JSON.stringify(newVote[0]));
 
+    recalculate(n);
+        
     document.getElementsByClassName('cardDate')[n].style.display = 'none';
     document.getElementsByClassName('cardV')[n].style.display = 'none';
     document.getElementsByClassName('cardTY')[n].style.display = 'flex';
@@ -81,6 +85,31 @@
 
   }
 
+
+
+  // RE-CALCULATING POPULARITY PERCENTAGES
+
+  function recalculate(n){
+
+    let result = JSON.parse(localStorage.getItem('Character'+n));
+
+    let totalVotes = (result.votes.positive) + (result.votes.negative);
+    let pPercent = ((result.votes.positive*100)/totalVotes).toFixed(2);
+    let nPercent = ((result.votes.negative*100)/totalVotes).toFixed(2);
+
+    let cardGaugeP = document.getElementsByClassName('cardGaugeP')[n];
+    cardGaugeP.style.width = pPercent+'%';
+    let cardGaugeP_n = document.getElementsByClassName('cardGaugeP_n')[n];
+    cardGaugeP_n.innerText = pPercent+'%';
+
+    let cardGaugeN = document.getElementsByClassName('cardGaugeN')[n];
+    cardGaugeN.style.width = nPercent+'%';
+    let cardGaugeN_n = document.getElementsByClassName('cardGaugeN_n')[n];
+    cardGaugeN_n.innerText = nPercent+'%';
+
+  };
+
+  
 
 
   

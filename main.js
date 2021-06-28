@@ -18,6 +18,7 @@ class card{
 
 // CONSUMING DATA.JSON FILE
 
+
 fetch('assets/data.json')
   .then(response => response.json())
   .then(res => {
@@ -175,6 +176,7 @@ fetch('assets/data.json')
         let cardGaugeP_img = document.createElement('img');
         cardGaugeP_img.src = 'assets/img/thumbs-up.svg';
         let cardGaugeP_n = document.createElement('h4');
+        cardGaugeP_n.classList.add('cardGaugeP_n');
         cardGaugeP_n.innerText = pPercent+'%';
         cardGaugeP.appendChild(cardGaugeP_img);
         cardGaugeP.appendChild(cardGaugeP_n);
@@ -190,6 +192,7 @@ fetch('assets/data.json')
         let cardGaugeN_img = document.createElement('img');
         cardGaugeN_img.src = 'assets/img/thumbs-down.svg';
         let cardGaugeN_n = document.createElement('h4');
+        cardGaugeN_n.classList.add('cardGaugeN_n');
         cardGaugeN_n.innerText = nPercent+'%';
         cardGaugeN.appendChild(cardGaugeN_img);
         cardGaugeN.appendChild(cardGaugeN_n);
