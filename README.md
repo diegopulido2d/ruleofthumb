@@ -11,6 +11,6 @@ Whenever a user clicks on the *Vote Now* button after selecting an option, we up
 
 ### Installation
 
-1. Download .zip, or clone repository through this URL: https://github.com/diegopulido2d/ruleofthumb.git
+1. Clone the repository through this URL: https://github.com/diegopulido2d/ruleofthumb.git
 2. Open the folder in your IDE and run the project locally
 3. If you are using VisualStudio Code, you can use Live Server plugin in order to launch the index into your preferred browser.
