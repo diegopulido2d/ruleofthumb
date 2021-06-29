@@ -13,4 +13,4 @@ Whenever a user clicks on the *Vote Now* button after selecting an option, the l
 ### Installation
 
 1. Clone the repository through this URL: https://github.com/diegopulido2d/ruleofthumb.git
-2. Open the folder in your IDE and run the project locally
+2. Open the folder in your IDE and run the project locally.
